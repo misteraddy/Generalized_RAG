@@ -1,0 +1,127 @@
+# ==============================
+# Python
+# ==============================
+
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+rag_venv/
+.venv/
+venv/
+env/
+ENV/
+
+# Python packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# ==============================
+# Environment & Secrets
+# ==============================
+
+.env
+.env.*
+!.env.example
+
+# API keys / credentials
+*.pem
+*.key
+credentials.json
+
+# ==============================
+# Streamlit
+# ==============================
+
+.streamlit/secrets.toml
+
+# ==============================
+# RAG / Vector Store
+# ==============================
+
+# Local FAISS indexes
+data/vector_store/
+data/knowledge_base/
+vector_store/
+faiss_index/
+
+# Serialized local data
+*.pkl
+*.pickle
+
+# ==============================
+# Uploaded Documents
+# ==============================
+
+data/uploads/
+uploads/
+
+# ==============================
+# Embeddings / ML Models
+# ==============================
+
+models/
+embeddings/
+.cache/
+.huggingface/
+
+# ==============================
+# Logs
+# ==============================
+
+*.log
+logs/
+
+# ==============================
+# Testing
+# ==============================
+
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# ==============================
+# Jupyter
+# ==============================
+
+.ipynb_checkpoints/
+
+# ==============================
+# IDE
+# ==============================
+
+.vscode/
+.idea/
+*.code-workspace
+
+# ==============================
+# Operating System
+# ==============================
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+Desktop.ini
+
+# macOS
+.DS_Store
+
+# Linux
+*~
+
+# ==============================
+# Temporary files
+# ==============================
+
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
