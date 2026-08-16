@@ -4,6 +4,7 @@ from chunking.recursive_chunking import recursive_chunking
 from chunking.token_chunking import token_chunking
 from chunking.markdown_chunking import markdown_chunking
 from chunking.semantic_chunking import semantic_chunking
+from chunking.sentence_window_chunking import sentence_window_chunking
 
 CHUNKING_STRATEGIES = {
     "Fixed": fixed_chunking,
@@ -12,6 +13,7 @@ CHUNKING_STRATEGIES = {
     "Content Aware": content_aware_chunking,
     "Markdown Header": markdown_chunking,
     "Semantic": semantic_chunking,
+    "Sentence Window": sentence_window_chunking,
 }
 
 CHUNK_SIZE_OPTIONS = [

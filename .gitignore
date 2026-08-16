@@ -57,7 +57,7 @@ faiss_index/
 # Uploaded Documents
 # ==============================
 
-data/uploads/
+data/uploaded/
 uploads/
 
 # ==============================

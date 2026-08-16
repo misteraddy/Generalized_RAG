@@ -1,5 +1,8 @@
 from langchain_community.retrievers import BM25Retriever
 from langchain_classic.retrievers import EnsembleRetriever
+from langchain_classic.retrievers import ParentDocumentRetriever
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain_core.stores import InMemoryStore
 
 
 def create_dense_retriever(vector_store, config):
@@ -192,5 +195,32 @@ def get_document_id(document):
         )
 
     return document.page_content
+
+
+def create_sentence_window_retriever(vector_store,config):
+
+    search_type = config.get(
+            "search_type",
+            "similarity",
+        )
+    
+    search_kwargs = {
+            "k": config.get("k", 4),
+        }
+
+    if config.get("metadata_filtering", False):
+
+        metadata_filter = config.get(
+            "metadata_filter"
+        )
+
+        if metadata_filter:
+            search_kwargs["filter"] = metadata_filter
+
+    return vector_store.as_retriever(
+        search_type=search_type,
+        search_kwargs=search_kwargs,
+    )
+
 
 

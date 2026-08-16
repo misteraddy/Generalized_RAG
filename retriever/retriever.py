@@ -4,6 +4,7 @@ from retriever_utils import (
     create_sparse_retriever,
     create_hybrid_retriever,
     remove_duplicate_documents,
+    create_sentence_window_retriever,
 )
     
 
@@ -40,8 +41,11 @@ def create_retriever(vector_store, config):
             config=config,
         )
 
-    if retriever_type == "":
-        return 
+    if retriever_type == "sentence_window":
+        return create_sentence_window_retriever(
+            vector_store=vector_store,
+            config=config,
+        )
 
     raise ValueError(
         f"Unsupported retriever type: {retriever_type}"
@@ -73,5 +77,3 @@ def retrieve_documents(retriever, queries, config):
         documents.extend(retrieved_documents)
 
     return remove_duplicate_documents(documents)
-
-

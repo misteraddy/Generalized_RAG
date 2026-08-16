@@ -9,7 +9,7 @@ from chunking.chunk_registry import (
 
 CHARACTER_BASED_STRATEGIES = [
     "Fixed",
-    "Markdown",
+    "Markdown Header",
     "Recursive Character",
     "Token",
     "Content Aware",
@@ -27,6 +27,7 @@ def render_chunking_config():
     overlap = None
     breakpoint_percentile = None
     buffer_size = None
+    window_size = None
 
     if chunking_strategy in CHARACTER_BASED_STRATEGIES:
 
@@ -74,10 +75,22 @@ def render_chunking_config():
             step=1,
         )
 
+    elif chunking_strategy == "Sentence Window":
+
+        window_size = st.number_input(
+            "Window Size",
+            min_value=1,
+            max_value=10,
+            value=2,
+            step=1,
+            help="Number of sentences to include before and after the target sentence.",
+        )
+
     return {
         "chunking_strategy": chunking_strategy,
         "chunk_size": chunk_size,
         "overlap": overlap,
         "breakpoint_percentile": breakpoint_percentile,
         "buffer_size": buffer_size,
+        "window_size": window_size,
     }

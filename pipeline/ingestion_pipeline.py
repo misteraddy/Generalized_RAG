@@ -3,7 +3,7 @@ import streamlit as st
 from ingestion.loader import load_document
 from ingestion.validator import validate_files
 from chunking.chunker import chunk_documents
-from db.db_utils import save_chunks_to_vector_store
+from db.vector_store import save_chunks_to_vector_store
 from utils.constants import DOCUMENT_TYPES
 
 document_types = [
